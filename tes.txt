@@ -1,0 +1,33 @@
+
+# Deployment
+
+1.  Install Python 3 and virtualenv
+
+    a.	If the deployment is being done in ubuntu, run the following commands in the terminal
+    ```bash
+    sudo apt-get install python3 python3-pip python3-tk
+    sudo pip install virtualenv
+    ```
+    b.	If the deployment is being done in windows, installing python is recommended using [Anaconda](https://www.continuum.io/downloads)
+2.  Download the zip, or clone it using git.
+    ```bash
+    git clone https://github.com/nikhil-pandey/fyp-ml
+    ```
+3.  Create a virtual environment and install the dependencies.
+
+    a.  In ubuntu, create the virtual environment for python 3 and activate it; then install the dependencies in requirements.txt file using the command
+    ```bash
+    pip install -r requirements.txt
+    ```
+    b.	For windows, refer to `requirements-anaconda.txt` file for creating virtual environment and installing dependencies.
+4.  Run `app.py`.
+
+
+# Live Demo
+[Click Here](https://aimed.nikhil.com.np)
+
+# Read Full Report
+[Click Here](https://nikhil.com.np/storage/aimed.pdf)
+
+# [License](LICENSE)
+This project is open-sourced under the [MIT license](LICENSE)
