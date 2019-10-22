@@ -1,0 +1,5 @@
+__pycache__
+.ipynb_checkpoints
+log
+results/Log-*.xlsx
+models/*.pkl
