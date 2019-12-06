@@ -4,7 +4,7 @@ import pandas
 import itertools
 import time
 import logging
-from sklearn import datasets, metrics, model_selection, preprocessing, linear_model, svm, naive_bayes, neighbors, neural_network, ensemble
+from sklearn import datasets, metrics, model_selection, preprocessing, linear_model, svm, naive_bayes, neighbors, neural_network, ensemble ,RandoomForest
 from sklearn.externals import joblib
 from scipy import stats
 import pickle
@@ -101,19 +101,26 @@ def main():
             'random': False
         },
 
-        'Linear SVC': {
+        'DecisionTree': {
             'clf': svm.LinearSVC(random_state=37,C=18.09),
             'cv_params': dict(C=numpy.arange(0.1,50,0.01).tolist()),
             'optimize': True,
             'random': False
         },
 
-        'Naive Bayes': {
-            'clf': naive_bayes.GaussianNB(),
-            'cv_params': dict(),
+        'RandoomForest': {
+            'clf': svm.LinearSVC(random_state=37,C=18.09),
+            'cv_params': dict(C=numpy.arange(0.1,50,0.01).tolist()),
             'optimize': True,
             'random': False
         },
+
+        # 'Naive Bayes': {
+        #     'clf': naive_bayes.GaussianNB(),
+        #     'cv_params': dict(),
+        #     'optimize': True,
+        #     'random': False
+        # },
 
         'K-Nearest Neighbors': {
             'clf': neighbors.KNeighborsClassifier(algorithm='brute', n_jobs=-1, n_neighbors=13, weights='uniform'),
@@ -122,7 +129,7 @@ def main():
             'random': False
         },
 
-        'MLP Classifier': {
+        'Gradient Boasting': {
             'clf': neural_network.MLPClassifier(random_state=37,learning_rate_init=0.026958815931057856, learning_rate='constant', hidden_layer_sizes=(29,26,5), activation='identity', alpha=16.681005372000556,max_iter=5000),
             'cv_params': dict(
                 hidden_layer_sizes=GenerateNeurons(2),

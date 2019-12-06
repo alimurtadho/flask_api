@@ -28,9 +28,9 @@ def PredictHeartDisease():
         standard_scalar = GetStandardScalarForHeart()
         features_standard = standard_scalar.transform(features)
 
-        LinearSVCClassifier, LogisticRegressionClassifier, NaiveBayesClassifier, KNeighborsClassifier, NeuralNetworkClassifier, EnsembleClassifier = GetAllClassifiersForHeart()
+        DecisionTree, LogisticRegressionClassifier, RandomForest, KNeighborsClassifier, GradientBoastingClassifier, EnsembleClassifier = GetAllClassifiersForHeart()
 
-        predictions = {'Ensemble': str(EnsembleClassifier.predict(features_standard)[0]), 'LinearSVC': str(LinearSVCClassifier.predict(features_standard)[0]), 'LogisticRegression': str(LogisticRegressionClassifier.predict(features_standard)[0]), 'NaiveBayes': str(NaiveBayesClassifier.predict(features_standard)[0]), 'KNeighbors': str(KNeighborsClassifier.predict(features_standard)[0]), 'NeuralNetwork': str(NeuralNetworkClassifier.predict(features_standard)[0]) }
+        predictions = {'Ensemble': str(EnsembleClassifier.predict(features_standard)[0]), 'DecisionTree': str(DecisionTree.predict(features_standard)[0]), 'LogisticRegression': str(LogisticRegressionClassifier.predict(features_standard)[0]), 'NaiveBayes': str(RandomForest.predict(features_standard)[0]), 'KNeighbors': str(KNeighborsClassifier.predict(features_standard)[0]), 'GradientBoasting': str(GradientBoastingClassifier.predict(features_standard)[0]) }
         return make_response(jsonify(predictions), 200)
     else:
         return make_response(jsonify({'errors': form.errors}), 400)
@@ -55,9 +55,9 @@ def PredictDiabetes():
         standard_scalar = GetStandardScalarForDiabetes()
         features_standard = standard_scalar.transform(features)
 
-        LinearSVCClassifier, LogisticRegressionClassifier, NaiveBayesClassifier, KNeighborsClassifier, NeuralNetworkClassifier, EnsembleClassifier = GetAllClassifiersForDiabetes()
+        DecisionTree, LogisticRegressionClassifier, RandomForest, KNeighborsClassifier, GradientBoastingClassifier, EnsembleClassifier = GetAllClassifiersForDiabetes()
 
-        predictions = {'Ensemble': str(EnsembleClassifier.predict(features_standard)[0]), 'LinearSVC': str(LinearSVCClassifier.predict(features_standard)[0]), 'LogisticRegression': str(LogisticRegressionClassifier.predict(features_standard)[0]), 'NaiveBayes': str(NaiveBayesClassifier.predict(features_standard)[0]), 'KNeighbors': str(KNeighborsClassifier.predict(features_standard)[0]), 'NeuralNetwork': str(NeuralNetworkClassifier.predict(features_standard)[0]) }
+        predictions = {'Ensemble': str(EnsembleClassifier.predict(features_standard)[0]), 'DecisionTree': str(DecisionTree.predict(features_standard)[0]), 'LogisticRegression': str(LogisticRegressionClassifier.predict(features_standard)[0]), 'RandomForest': str(RandomForest.predict(features_standard)[0]), 'KNeighbors': str(KNeighborsClassifier.predict(features_standard)[0]), 'GradientBoasting': str(GradientBoastingClassifier.predict(features_standard)[0]) }
         return make_response(jsonify(predictions), 200)
     else:
         return make_response(jsonify({'errors': form.errors}), 400)

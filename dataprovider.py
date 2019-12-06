@@ -7,19 +7,20 @@ config = {
         'scalar_file': 'production/heart/standard_scalar.pkl',
         'LinearSVC': 'production/heart/LinearSVC.pkl',
         'LogisticRegression': 'production/heart/LogisticRegression.pkl',
-        'NaiveBayes': 'production/heart/NaiveBayes.pkl',
+        'RandomForest': 'production/heart/RandomForest.pkl',
         'KNeighbors': 'production/heart/KNeighbors.pkl',
-        'NeuralNetwork': 'production/heart/NN.pkl',
+        'GradientBoasting': 'production/heart/NN.pkl',
         'Ensemble' : 'production/heart/Ensemble.pkl'
     },
     'diabetes': {
         'scalar_file': 'production/diabetes/standard_scalar.pkl',
         'LinearSVC': 'production/diabetes/LinearSVC.pkl',
         'LogisticRegression': 'production/diabetes/LogisticRegression.pkl',
-        'NaiveBayes': 'production/diabetes/NaiveBayes.pkl',
+        'RandomForest': 'production/diabetes/RandomForest.pkl',
         'KNeighbors': 'production/diabetes/KNeighbors.pkl',
-        'NeuralNetwork': 'production/diabetes/NN.pkl',
-        'Ensemble' : 'production/diabetes/Ensemble.pkl'
+        'GradientBoasting': 'production/diabetes/GradientBoasting.pkl',
+        'Ensemble' : 'production/diabetes/Ensemble.pkl',
+        # 'Gradient' : 'production/diabetes/gradientboasting.pkl'
     }
 }
 
@@ -39,7 +40,7 @@ def GetStandardScalarForHeart():
     return GetPickleFile(config['heart']['scalar_file'])
 
 def GetAllClassifiersForHeart():
-    return (GetLinearSVCClassifierForHeart(), GetLogisticRegressionClassifierForHeart(), GetNaiveBayesClassifierForHeart(), GetKNeighborsClassifierForHeart(), GetNeuralNetworkClassifierForHeart(), GetEnsembleClassifierForHeart())
+    return (GetLinearSVCClassifierForHeart(), GetLogisticRegressionClassifierForHeart(), GetRandomForestClassifierForHeart(), GetKNeighborsClassifierForHeart(), GetGradientBoastingClassifierForHeart(), GetEnsembleClassifierForHeart())
 
 def GetLinearSVCClassifierForHeart():
     return GetJobLibFile(config['heart']['LinearSVC'])
@@ -47,14 +48,14 @@ def GetLinearSVCClassifierForHeart():
 def GetLogisticRegressionClassifierForHeart():
     return GetJobLibFile(config['heart']['LogisticRegression'])
 
-def GetNaiveBayesClassifierForHeart():
-    return GetJobLibFile(config['heart']['NaiveBayes'])
+def GetRandomForestClassifierForHeart():
+    return GetJobLibFile(config['heart']['RandomForest'])
 
 def GetKNeighborsClassifierForHeart():
     return GetJobLibFile(config['heart']['KNeighbors'])
 
-def GetNeuralNetworkClassifierForHeart():
-    return GetJobLibFile(config['heart']['NeuralNetwork'])
+def GetGradientBoastingClassifierForHeart():
+    return GetJobLibFile(config['heart']['GradientBoasting'])
 
 def GetEnsembleClassifierForHeart():
     return GetJobLibFile(config['heart']['Ensemble'])
@@ -62,7 +63,7 @@ def GetEnsembleClassifierForHeart():
 ## Diabetes
 
 def GetAllClassifiersForDiabetes():
-    return (GetLinearSVCClassifierForDiabetes(), GetLogisticRegressionClassifierForDiabetes(), GetNaiveBayesClassifierForDiabetes(), GetKNeighborsClassifierForDiabetes(), GetNeuralNetworkClassifierForDiabetes(), GetEnsembleClassifierForDiabetes())
+    return (GetLinearSVCClassifierForDiabetes(), GetLogisticRegressionClassifierForDiabetes(), GetRFClassifierForDiabetes(), GetKNeighborsClassifierForDiabetes(), GetGBClassifierForDiabetes(), GetEnsembleClassifierForDiabetes())
 
 def GetStandardScalarForDiabetes():
     return GetPickleFile(config['diabetes']['scalar_file'])
@@ -73,14 +74,18 @@ def GetLinearSVCClassifierForDiabetes():
 def GetLogisticRegressionClassifierForDiabetes():
     return GetJobLibFile(config['diabetes']['LogisticRegression'])
 
-def GetNaiveBayesClassifierForDiabetes():
-    return GetJobLibFile(config['diabetes']['NaiveBayes'])
+def GetRFClassifierForDiabetes():
+    return GetJobLibFile(config['diabetes']['RandomForest'])
 
 def GetKNeighborsClassifierForDiabetes():
     return GetJobLibFile(config['diabetes']['KNeighbors'])
 
-def GetNeuralNetworkClassifierForDiabetes():
-    return GetJobLibFile(config['diabetes']['NeuralNetwork'])
+def GetGBClassifierForDiabetes():
+    return GetJobLibFile(config['diabetes']['GradientBoasting'])
 
 def GetEnsembleClassifierForDiabetes():
     return GetJobLibFile(config['diabetes']['Ensemble'])
+
+# def GetGradientClassifierForDiabetes():
+#     return GetJobLibFile(config['diabetes']['Gradient'])
+
